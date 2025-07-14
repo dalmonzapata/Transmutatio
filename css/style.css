@@ -61,3 +61,24 @@ h2 { margin-bottom: 1rem; color: #0a2540; }
   .nav-toggle { display: block; }
   .tool form { grid-template-columns: 1fr; }
 }
+/* Esconder por padrão e estilizar feedback */
+.form-success,
+.form-error {
+  display: none;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.form-success {
+  color: #28a745;
+}
+
+.form-error {
+  color: #dc3545;
+}
+
+/* Para esconder o honeypot visualmente */
+.hidden {
+  position: absolute;
+  left: -9999px;
+}
