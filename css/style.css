@@ -1,84 +1,128 @@
+/* Reset & Base */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
+
+/* Containers */
 .container { width: 90%; max-width: 1000px; margin: 0 auto; padding: 2rem 0; }
+
+/* Header */
 .site-header { background: #0a2540; }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; }
 .site-header .logo { color: #fff; font-size: 1.5rem; text-decoration: none; }
 .site-header .nav a { margin-left: 1rem; color: #fff; text-decoration: none; }
 .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; }
- .hero {
-  position: relative;              /* necessário para o overlay */
+@media(max-width:768px) {
+  .site-header .nav { display: none; flex-direction: column; background: #0a2540; position: absolute; top:60px; right:0; width:200px; }
+  .nav-toggle { display: block; }
+}
+
+/* Hero com overlay */
+.hero {
+  position: relative;
   background: url('../images/hero.jpg') center/cover no-repeat;
   color: #fff;
   text-align: center;
   padding: 8rem 0;
-  overflow: hidden;                /* garante que o overlay não ultrapasse */
+  overflow: hidden;
 }
-
 .hero::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);  /* ajusta a opacidade conforme precisar */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
-
 .hero .container {
-  position: relative;              /* traz o texto para frente do overlay */
+  position: relative;
   z-index: 2;
 }
+.hero h1,
 .hero p {
-  margin-bottom: 1.5rem;    /* espaço entre o parágrafo e os botões */
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+.hero p { margin-bottom: 1.5rem; }
+
+/* Botões do Hero */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.btn-primary {
+  background: #28a745;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.btn-secondary {
+  background: #ffc107;
+  color: #333;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+@media (max-width:480px) {
+  .hero-buttons { flex-direction: column; gap: 0.75rem; }
 }
 
-.hero-buttons {
-  display: flex;            /* alinha botões na horizontal */
-  justify-content: center;  /* centraliza no hero */
-  gap: 1rem;                /* espaço fixo entre os botões */
-  margin-top: 1rem;         /* distancia extra acima, se precisar */
-}
-.btn-primary { background: #28a745; color: #fff; padding: 0.8rem 1.5rem; border: none; border-radius: 4px; text-decoration: none; }
-.btn-secondary { background: #ffc107; color: #333; padding: 0.8rem 1.5rem; border: none; border-radius: 4px; margin-left: 1rem; }
+/* Sections */
 .section { padding: 4rem 0; }
 .bg-light { background: #f9f9f9; }
 h2 { margin-bottom: 1rem; color: #0a2540; }
 .edu-block { margin-bottom: 2rem; }
+
+/* Ferramentas */
 .tool { margin-bottom: 3rem; }
 .tool form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .tool form label { display: flex; flex-direction: column; }
 .tool button { grid-column: span 2; padding: 0.6rem; background: #0a2540; color: #fff; border: none; cursor: pointer; }
+@media(max-width:768px) {
+  .tool form { grid-template-columns: 1fr; }
+}
+
+/* Blog Cards */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
 .card { background: #fff; padding: 1.5rem; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 .card a { color: #28a745; text-decoration: none; margin-top: 0.5rem; display: inline-block; }
+
+/* Testimonials */
 .testimonial { margin: 2rem 0; }
-#contact-form { display: grid; gap: 1rem; max-width: 400px; }
-#contact-form label { display: flex; flex-direction: column; }
-.footer { background: #0a2540; color: #fff; text-align: center; padding: 2rem 0; }
-.footer .social a { margin: 0 .5rem; color: #ffc107; text-decoration: none; }
-@media(max-width:768px) {
-  .site-header .nav { display: none; flex-direction: column; background: #0a2540; position: absolute; top:60px; right:0; width:200px; }
-  .nav-toggle { display: block; }
-  .tool form { grid-template-columns: 1fr; }
-}
-/* Esconder por padrão e estilizar feedback */
+
+/* Newsletter Feedback */
+.hidden { position: absolute; left: -9999px; }
 .form-success,
 .form-error {
   display: none;
   margin-top: 1rem;
   font-weight: bold;
 }
+.form-success { color: #28a745; }
+.form-error   { color: #dc3545; }
 
-.form-success {
-  color: #28a745;
+/* Notícias Financeiras */
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 1.5rem;
 }
+.news-item {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.news-item h3 a {
+  color: #0a2540;
+  text-decoration: none;
+}
+.news-item p { margin: .5rem 0; color: #555; }
+.news-item time { font-size: 0.85rem; color: #888; }
 
-.form-error {
-  color: #dc3545;
-}
-
-/* Para esconder o honeypot visualmente */
-.hidden {
-  position: absolute;
-  left: -9999px;
-}
+/* Footer */
+.footer { background: #0a2540; color: #fff; text-align: center; padding: 2rem 0; }
+.footer .social a { margin: 0 .5rem; color: #ffc107; text-decoration: none; }
