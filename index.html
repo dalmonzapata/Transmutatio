@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- NAVIGATION -->
+  <!-- HEADER / NAV -->
   <header class="site-header">
     <div class="container">
       <a href="#" class="logo">Transmutatio</a>
@@ -18,7 +18,8 @@
         <a href="#tools">Ferramentas</a>
         <a href="#blog">Blog</a>
         <a href="#cases">Cases</a>
-        <a href="#contact">Contato</a>
+        <a href="#newsletter">Newsletter</a>
+        <a href="#news">Notícias</a>
       </nav>
       <button class="nav-toggle">☰</button>
     </div>
@@ -29,16 +30,16 @@
     <div class="container">
       <h1>Transforme seu futuro financeiro hoje</h1>
       <p>Com métodos comprovados, torne seus sonhos realidade e ganhe liberdade.</p>
-            <div class="hero-buttons">
+      <div class="hero-buttons">
         <a href="#education" class="btn-primary">Comece Agora</a>
-        <a href="#contact" class="btn-secondary">Newsletter Gratuita</a>
+        <a href="#newsletter" class="btn-secondary">Newsletter Gratuita</a>
+      </div>
     </div>
   </section>
 
   <!-- SOBRE -->
   <section id="about" class="section">
     <div class="container">
-    <img src="images/about.jpg" alt="Sobre a empresa" style="width:100%; border-radius:8px; margin-bottom:1rem;" />
       <h2>Sobre a Transmutatio</h2>
       <p>A Transmutatio nasceu para descomplicar finanças. Acreditamos que qualquer pessoa pode construir segurança e riqueza com o conhecimento certo, passo a passo.</p>
       <ul>
@@ -52,7 +53,6 @@
   <!-- EDUCAÇÃO FINANCEIRA -->
   <section id="education" class="section bg-light">
     <div class="container">
-<img src="images/education.jpg" alt="Educação Financeira" style="width:100%; border-radius:8px; margin-bottom:1rem;" />
       <h2>Educação Financeira</h2>
       <article class="edu-block">
         <h3>Conceitos Básicos</h3>
@@ -72,8 +72,8 @@
   <!-- FERRAMENTAS INTERATIVAS -->
   <section id="tools" class="section">
     <div class="container">
-<img src="images/tools.jpg" alt="Ferramentas Interativas" style="width:100%; border-radius:8px; margin-bottom:1rem;" />
       <h2>Ferramentas Interativas</h2>
+
       <div class="tool">
         <h3>Calculadora de Orçamento</h3>
         <form id="budget-form">
@@ -108,13 +108,13 @@
         </form>
         <p id="quiz-result"></p>
       </div>
+
     </div>
   </section>
 
   <!-- BLOG & RECURSOS -->
   <section id="blog" class="section bg-light">
     <div class="container">
-<img src="images/blog.jpg" alt="Blog & Recursos" style="width:100%; border-radius:8px; margin-bottom:1rem;" />
       <h2>Blog &amp; Recursos</h2>
       <div class="cards">
         <article class="card">
@@ -139,48 +139,54 @@
   <!-- CASES DE SUCESSO -->
   <section id="cases" class="section">
     <div class="container">
-<img src="images/success.jpg" alt="Cases de Sucesso" style="width:100%; border-radius:8px; margin-bottom:1rem;" />
       <h2>Cases de Sucesso</h2>
       <div class="testimonial">
-        <blockquote>“Com o método Transmutatio, quitei minhas dívidas em 6 meses e hoje invisto mensalmente.”</blockquote>
+        <blockquote>
+          “Com o método Transmutatio, quitei minhas dívidas em 6 meses e hoje invisto mensalmente.”
+        </blockquote>
         <p>— Ana Silva, SP</p>
       </div>
       <div class="testimonial">
-        <blockquote>“Passei da zona de alerta para reserva de emergência garantida. Recomendo a todos!”</blockquote>
+        <blockquote>
+          “Passei da zona de alerta para reserva de emergência garantida. Recomendo a todos!”
+        </blockquote>
         <p>— Carlos Pereira, RJ</p>
       </div>
     </div>
   </section>
 
-  <!-- CONTATO -->
-<section id="newsletter" class="section bg-light">
-  <div class="container">
-    <h2>Assine nossa Newsletter</h2>
-    <p>Receba análises, dicas e notícias direto no seu e-mail.</p>
+  <!-- NEWSLETTER -->
+  <section id="newsletter" class="section bg-light">
+    <div class="container">
+      <h2>Assine nossa Newsletter</h2>
+      <p>Receba análises, dicas e notícias direto no seu e-mail.</p>
+      <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="newsletter" />
+        <p class="hidden">
+          <label>Não preencha se for humano: <input name="bot-field" /></label>
+        </p>
+        <label>Nome:
+          <input type="text" name="name" required />
+        </label>
+        <label>E-mail:
+          <input type="email" name="email" required />
+        </label>
+        <button type="submit" class="btn-primary">Quero Assinar</button>
+      </form>
+      <p class="form-success" aria-live="polite">Obrigado! Você está inscrito.</p>
+      <p class="form-error" aria-live="assertive">Ocorreu um erro. Tente novamente.</p>
+    </div>
+  </section>
 
-    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <!-- Field oculta para bots -->
-      <input type="hidden" name="form-name" value="newsletter" />
-      <p class="hidden">
-        <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-      </p>
-
-      <label>Nome:
-        <input type="text" name="name" required />
-      </label>
-
-      <label>E-mail:
-        <input type="email" name="email" required />
-      </label>
-
-      <button type="submit" class="btn-primary">Quero Assinar</button>
-    </form>
-
-    <!-- Mensagens de feedback -->
-    <p class="form-success" aria-live="polite">Obrigado! Você está inscrito.</p>
-    <p class="form-error" aria-live="assertive">Ocorreu um erro. Tente novamente.</p>
-  </div>
-</section>
+  <!-- NOTÍCIAS FINANCEIRAS -->
+  <section id="news" class="section">
+    <div class="container">
+      <h2>Notícias Financeiras</h2>
+      <div class="news-list">
+        <!-- será preenchido dinamicamente -->
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -197,4 +203,7 @@
   <script src="js/main.js"></script>
   <script src="js/calculator.js"></script>
   <script src="js/simulator.js"></script>
-  <script src="js
+  <script src="js/quiz.js"></script>
+  <script src="js/news.js"></script>
+</body>
+</html>
