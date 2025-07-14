@@ -6,7 +6,28 @@ body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
 .site-header .logo { color: #fff; font-size: 1.5rem; text-decoration: none; }
 .site-header .nav a { margin-left: 1rem; color: #fff; text-decoration: none; }
 .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; }
-.hero { background: url('../images/hero.jpg') center/cover no-repeat; color: #fff; text-align: center; padding: 8rem 0; }
+ .hero {
+  position: relative;              /* necessário para o overlay */
+  background: url('../images/hero.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 8rem 0;
+  overflow: hidden;                /* garante que o overlay não ultrapasse */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);  /* ajusta a opacidade conforme precisar */
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;              /* traz o texto para frente do overlay */
+  z-index: 2;
+}
 .btn-primary { background: #28a745; color: #fff; padding: 0.8rem 1.5rem; border: none; border-radius: 4px; text-decoration: none; }
 .btn-secondary { background: #ffc107; color: #333; padding: 0.8rem 1.5rem; border: none; border-radius: 4px; margin-left: 1rem; }
 .section { padding: 4rem 0; }
